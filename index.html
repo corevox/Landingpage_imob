@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seu Imóvel Ideal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #005c99;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    input, select, button {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+    a {
+      color: #005c99;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏠 Seu novo lar está te esperando!</h1>
+    <p>Imóveis para compra ou aluguel com atendimento personalizado</p>
+  </header>
+
+  <section>
+    <h2>Receba opções direto no seu WhatsApp</h2>
+    <p>Preencha o formulário abaixo e entre em contato agora mesmo com nossa corretora. Vamos encontrar o imóvel ideal para você!</p>
+    
+    <form id="leadForm">
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <select name="tipo" required>
+        <option value="">Tipo de imóvel</option>
+        <option value="casa">Casa</option>
+        <option value="apartamento">Apartamento</option>
+        <option value="sala comercial">Sala Comercial</option>
+      </select>
+      <select name="interesse" required>
+        <option value="">Comprar ou Alugar?</option>
+        <option value="comprar">Comprar</option>
+        <option value="alugar">Alugar</option>
+      </select>
+      <input type="text" name="bairro" placeholder="Bairro de interesse" required />
+      <input type="tel" name="whatsapp" placeholder="WhatsApp com DDD" required />
+      <button type="submit">Quero receber opções no WhatsApp</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>WhatsApp: (XX) XXXXX-XXXX | Instagram: <a href="#">@sua_corretora_imoveis</a></p>
+    <p>&copy; 2025 Sua Corretora. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("leadForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nome = this.nome.value;
+      const tipo = this.tipo.value;
+      const interesse = this.interesse.value;
+      const bairro = this.bairro.value;
+      const whatsapp = this.whatsapp.value;
+
+      const msg = `Olá! Meu nome é ${nome}. Estou interessado(a) em ${interesse} um(a) ${tipo} no bairro ${bairro}. Meu WhatsApp é: ${whatsapp}`;
+      const numeroDestino = 'SEU_NUMERO_AQUI';
+
+      const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
